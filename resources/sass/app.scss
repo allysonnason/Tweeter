@@ -1,0 +1,74 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.profile-info {
+    padding-top: 20px;
+}
+
+.tribe-title {
+    padding-top: 30px;
+}
+
+.card-header {
+    font-size: 30px;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: pink;
+}
+
+body {
+font-size: 1.0rem;
+}
+
+textarea {
+    height: 40px;
+    max-width: 100%;
+}
+
+.card{
+    padding: 20px;
+    font-size: 1.9rem;
+}
+
+.grid-container {
+
+    display: grid;
+    grid-template-areas:
+    'header header'
+    'content content'
+    'footer footer';
+
+    min-height: 100vh;
+}
+
+.header {
+    grid-area: header;
+    text-align:center;
+}
+
+.footer {
+    grid-area: footer;
+    text-align: center;
+}
+
+.content {
+    grid-area: content;
+    text-align: left;
+    margin-left: 20px;
+}
+body {
+    background-color: pink;
+}
+
+.new-post {
+    padding: 16px 0;
+    border-bottom: 1px solid blue;
+}
