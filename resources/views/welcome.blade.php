@@ -14,7 +14,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: pink;
+                background-color: skyblue;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
@@ -88,7 +88,7 @@
                 <div>
                     <img src="https://scontent.fyyc2-1.fna.fbcdn.net/v/t1.0-9/67389382_2801256249902842_3431914899431751680_n.jpg?_nc_cat=101&_nc_oc=AQl2GGtMf0F1XFcgjfT_7dLlcuSXqQ68KqpgOoJ8w4pGnMDR3iPZ1251GcSKvqiV7UY&_nc_ht=scontent.fyyc2-1.fna&oh=fede3b676fde2be8342beebad58ed59f&oe=5DB5962B" width="150" height="150" alt="HayGirl Logo" class="rounded-circle">
                 </div>
-                <h2>Where "Can Chasers" Connect</h2>
+                <h2>Yay Horsies!</h2>
 
                 <div class="links">
                     <a href="/register" button type="submit" class="btn btn-primary">Register</a></button>
