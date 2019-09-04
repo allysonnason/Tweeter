@@ -8,19 +8,27 @@
             <p class="card-text">{{ $post->body}}</p>
         </div>
 
-        
+
             @if (Auth::check())
             <form action="{{route('comments.store', $post->id)}}" method="POST">
                 @csrf
                 <p>{{ Form::textarea('body', old('body')) }}</p>
                 {{ Form::hidden('post_id', $post->id) }}
-                <p>{{ Form::submit('Post') }}</p>
+                <p>{{ Form::submit('Comment') }}</p>
+
+                <div class="form-group">
+                    <a class= "btn btn-primary" href="#addGif" data-toggle="collapse">GIF</a>
+                    <div id="addGif" class="collapse">
+                        <gif-component></gif-component>
+                    </div>
+                </div>
             </form>
             @endif
 
             @forelse ($post->comments as $comment)
                 <p>{{ $comment->user->name }}</p>
                 <p>{{ $comment->body }}</p>
+                <img src="{{ $comment->gif}}" alt="">
                 <hr>
             @empty
                 <p>This post has no comments</p>
@@ -35,7 +43,9 @@
             {{ method_field('DELETE') }}
             <button type="submit" class="btn btn-dark">Delete</button>
             <a href="/posts/{{$post->id}}/edit" class="btn btn-dark">Edit</a>
+
         </form>
         @endif
+
     </div>
 </div>

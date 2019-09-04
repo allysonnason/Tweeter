@@ -1,0 +1,72 @@
+body {
+  background-color: pink;
+}
+
+#findRaces .jumbotron {
+  background-color: transparent;
+  background-image: url(/images/blackHorse.jpg?75f85f236a8bdce0634a551b3b02d32e);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#buyHorses .jumbotron {
+  background-color: transparent;
+  background-image: url(/images/horseEye.jpg?35d8cabd762dd119d487a347aa41b454);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#findARide .jumbotron {
+  background-color: transparent;
+  background-image: url(/images/br.jpg?d5ee00da42846185be82be4563f0e384);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#threeBarrels .jumbotron {
+  background-color: pink;
+  text-align: center;
+}
+
+h1 {
+  color: pink;
+  font-weight: bold;
+}
+
+p {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.lead {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.registerButton {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.headerButton {
+  padding-left: 30px;
+}
+
+.navbar {
+  background-color: transparent;
+  background-image: url(/images/barrelRacer.jpg?74ae497cf18ec54977d17c52434659a9);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 100px;
+}
+
+footer {
+  text-align: center;
+  padding-bottom: 20px;
+}
+

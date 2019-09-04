@@ -10684,6 +10684,7 @@ textarea {
 .header {
   grid-area: header;
   text-align: center;
+  background-color: grey;
 }
 
 .footer {

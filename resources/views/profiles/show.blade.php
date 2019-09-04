@@ -24,13 +24,12 @@
 
 
                 <div class="card">
-
                         <div class="card-body ">
                             @foreach ($user->posts as $post)
                             @include('posts._post')
                             @endforeach
                         </div><br />
-                </div>
+
             </div>
         </div>
 

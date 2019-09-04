@@ -50,6 +50,7 @@ class CommentsController extends Controller
             'body'=>'required'
         ]);
 
+
         $post = Post::where('id', $id)->first();
 
         $user_id=Auth::id();
@@ -58,6 +59,7 @@ class CommentsController extends Controller
         $comment->body= $request->body;
         $comment->post()->associate($post);
         $comment->user_id= $user_id;
+        $comment->gif = $request->gif;
 
         $comment->save();
 
@@ -97,7 +99,7 @@ class CommentsController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $comment->gif = $request->gif;
     }
 
     /**
