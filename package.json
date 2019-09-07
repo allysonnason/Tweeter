@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "parallax-js": "^3.1.0",
+        "scrollreveal": "^4.0.5",
         "watch": "^1.0.2"
     }
 }

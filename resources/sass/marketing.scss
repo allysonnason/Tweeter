@@ -1,31 +1,29 @@
 body {
     background-color: pink;
 }
-
-#findRaces .jumbotron {
+.jumbotron {
     background-color: transparent;
-    background-image: url('resources/images/blackHorse.jpg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+#findRaces .jumbotron {
+    background-image: url('resources/images/blackHorse.jpg');
 }
 #buyHorses .jumbotron {
-    background-color: transparent;
-    background-image: url('resources/images/horseEye.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('resources/images/horseTop.jpg');
 }
 #findARide .jumbotron {
-    background-color: transparent;
-    background-image: url('resources/images/br.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url('resources/images/horsehead.jpeg');
 }
 #threeBarrels .jumbotron {
     background-color: pink;
     text-align: center;
+}
+#getTheApp .jumbotron {
+    margin-top: -33px;
+    background-image: url('resources/images/hayGirlApp.jpg');
+    height: 800px;
 }
 h1 {
     color: pink;
@@ -34,18 +32,16 @@ h1 {
 p {
     color: white;
     font-size: 30px;
-    font-weight: bold;
+    font-weight: 400;
 }
+
 .lead {
     font-size: 40px;
-    font-weight: bold;
+    font-weight: 400;
 }
 .registerButton {
     text-align: center;
     padding-bottom: 40px;
-}
-.headerButton {
-    padding-left: 30px;
 }
 .navbar {
     background-color: transparent;
@@ -53,10 +49,52 @@ p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 100px;
+    height:200px
 }
 
+h2 .display-4 {
+    color: black;
+}
+.display-3 {
+    color: pink;
+    font-size: 50px;
+    font-weight: 400;
+}
 footer {
     text-align: center;
     padding-bottom: 20px;
+}
+.ballText {
+    color: black;
+    font-weight: bold;
+    padding-top: 60px;
+    padding-left: 25px;
+}
+.ball {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border-style: dotted;
+    background-color: pink;
+
+    animation: bounce 1.2s;
+    animation-direction: alternate;
+    animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+    animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+    from { transform: translate3d(0, 0, 0);     }
+    to   { transform: translate3d(0, 200px, 0); }
+}
+ball {
+    -webkit-animation-name: bounce;
+    -webkit-animation-duration: 0.5s;
+      -webkit-animation-direction: alternate;
+      -webkit-animation-timing-function: cubic-bezier(.5,0.05,1,.5);
+      -webkit-animation-iteration-count: infinite;
+ }
+@-webkit-keyframes bounce {
+    from { -webkit-transform: translate3d(0, 0, 0); transform: translate3d(0, 0, 0); }
+    to   { -webkit-transform: translate3d(0, 200px, 0); transform: translate3d(0, 200px, 0); }
 }

@@ -2,33 +2,34 @@ body {
   background-color: pink;
 }
 
-#findRaces .jumbotron {
+.jumbotron {
   background-color: transparent;
-  background-image: url(/images/blackHorse.jpg?75f85f236a8bdce0634a551b3b02d32e);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#findRaces .jumbotron {
+  background-image: url(/images/blackHorse.jpg?75f85f236a8bdce0634a551b3b02d32e);
 }
 
 #buyHorses .jumbotron {
-  background-color: transparent;
-  background-image: url(/images/horseEye.jpg?35d8cabd762dd119d487a347aa41b454);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url(/images/horseTop.jpg?9be8ae863047db62bfaa504d802e8be9);
 }
 
 #findARide .jumbotron {
-  background-color: transparent;
-  background-image: url(/images/br.jpg?d5ee00da42846185be82be4563f0e384);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-image: url(/images/horsehead.jpeg?e4ba87e499c451a4258edff0f5b54dd6);
 }
 
 #threeBarrels .jumbotron {
   background-color: pink;
   text-align: center;
+}
+
+#getTheApp .jumbotron {
+  margin-top: -33px;
+  background-image: url(/images/hayGirlApp.jpg?46102ab213e90eae4c9d7d832f435dab);
+  height: 800px;
 }
 
 h1 {
@@ -39,21 +40,17 @@ h1 {
 p {
   color: white;
   font-size: 30px;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .lead {
   font-size: 40px;
-  font-weight: bold;
+  font-weight: 400;
 }
 
 .registerButton {
   text-align: center;
   padding-bottom: 40px;
-}
-
-.headerButton {
-  padding-left: 30px;
 }
 
 .navbar {
@@ -62,11 +59,72 @@ p {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding: 100px;
+  height: 200px;
+}
+
+h2 .display-4 {
+  color: black;
+}
+
+.display-3 {
+  color: pink;
+  font-size: 50px;
+  font-weight: 400;
 }
 
 footer {
   text-align: center;
   padding-bottom: 20px;
+}
+
+.ballText {
+  color: black;
+  font-weight: bold;
+  padding-top: 60px;
+  padding-left: 25px;
+}
+
+.ball {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border-style: dotted;
+  background-color: pink;
+  -webkit-animation: bounce 1.2s;
+          animation: bounce 1.2s;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+  -webkit-animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+          animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+@keyframes bounce {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 200px, 0);
+  }
+}
+
+ball {
+  -webkit-animation-name: bounce;
+  -webkit-animation-duration: 0.5s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: cubic-bezier(0.5, 0.05, 1, 0.5);
+  -webkit-animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes bounce {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(0, 200px, 0);
+  }
 }
 

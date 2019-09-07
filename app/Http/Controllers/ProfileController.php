@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use User;
 
 class ProfileController extends Controller
 {
@@ -16,6 +17,8 @@ class ProfileController extends Controller
     public function edit($user_id)
     {
         $user = \App\User::find($user_id);
+        $posts = \App\Post::where('user_id',$user)->latest()->paginate(2);
+
         $profile = $user->profile;
         return view('profiles/edit', compact('user', 'profile'));
     }

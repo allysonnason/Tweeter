@@ -2,11 +2,41 @@
 
 <div class="container">
     <div class="card">
-        <div class="card-body">
-            <h5 class="card-header"><a href ="/profiles/{{$post->user->id}}">{{$post->user->name}}</a></h5>
+        <h5 class="card-header"><a href ="/profiles/{{$post->user->id}}">{{$post->user->name}}</a></h5>
+            <div class="card">
+                <div class="card-header">{{ $post->body}}
+                    <br>
+                @php
+                    $found = 0;
+                @endphp
+                @foreach($post->likes as $like)
+                    @if(Auth::id() == $like->user_id)
+                        @php
+                            $found = 1;
+                        @endphp
+                    @endif
+                @endforeach
 
-            <p class="card-text">{{ $post->body}}</p>
-        </div>
+                @if($found == 1)
+                    <a href="/posts/{{ $post->id }}/like" class="btn btn-danger">Unlike</a>
+                @endif
+                @if($found == 0)
+                    <a href="/posts/{{ $post->id }}/like" class="btn btn-primary">Like</a>
+                @endif
+                ({{ $post->likes()->count() }})
+
+            </div>
+
+                @if(Auth::id() == $post->user_id)
+                <form action="/posts/{{ $post->id}}" method="POST">
+                    @csrf
+                    {{ method_field('DELETE') }}
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <a href="/posts/{{$post->id}}/edit" class="btn btn-dark">Edit</a>
+
+                </form>
+                @endif
+
 
 
             @if (Auth::check())
@@ -26,26 +56,15 @@
             @endif
 
             @forelse ($post->comments as $comment)
-                <p>{{ $comment->user->name }}</p>
+
+                    <h5 class="card-title">{{ $comment->user->name }}</h5>
                 <p>{{ $comment->body }}</p>
                 <img src="{{ $comment->gif}}" alt="">
                 <hr>
             @empty
-                <p>This post has no comments</p>
+                <p></p>
             @endforelse
 
-        <a href="/posts/{{ $post->id }}/like" class="btn btn-primary">Like</a>
-        ({{ $post->likes()->count() }})
-
-        @if(Auth::id() == $post->user_id)
-        <form action="/posts/{{ $post->id}}" method="POST">
-            @csrf
-            {{ method_field('DELETE') }}
-            <button type="submit" class="btn btn-dark">Delete</button>
-            <a href="/posts/{{$post->id}}/edit" class="btn btn-dark">Edit</a>
-
-        </form>
-        @endif
-
-    </div>
+    </div><br>
+</div>
 </div>

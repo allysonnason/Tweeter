@@ -10657,8 +10657,8 @@ a.text-dark:focus {
 }
 
 .card-title {
-  font-size: 1.5rem;
-  color: pink;
+  font-size: 25px;
+  color: black;
 }
 
 body {
@@ -10671,8 +10671,8 @@ textarea {
 }
 
 .card {
-  padding: 20px;
-  font-size: 1.9rem;
+  padding-left: 10px;
+  font-size: 20px;
 }
 
 .grid-container {
