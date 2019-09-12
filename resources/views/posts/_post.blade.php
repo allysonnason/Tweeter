@@ -1,70 +1,59 @@
 
 
-<div class="container">
     <div class="card">
         <h5 class="card-header"><a href ="/profiles/{{$post->user->id}}">{{$post->user->name}}</a></h5>
-            <div class="card">
-                <div class="card-header">{{ $post->body}}
+            <div class="card-body">
+                <div class="card-title">{{ $post->body}}</div>
                     <br>
-                @php
-                    $found = 0;
-                @endphp
-                @foreach($post->likes as $like)
-                    @if(Auth::id() == $like->user_id)
-                        @php
-                            $found = 1;
-                        @endphp
-                    @endif
-                @endforeach
 
-                @if($found == 1)
-                    <a href="/posts/{{ $post->id }}/like" class="btn btn-danger">Unlike</a>
-                @endif
-                @if($found == 0)
-                    <a href="/posts/{{ $post->id }}/like" class="btn btn-primary">Like</a>
-                @endif
-                ({{ $post->likes()->count() }})
+            
 
-            </div>
+                <div class="card-text post-buttons">
+                    <like-button :post-id="{{ $post->id }}" is-liked="{{ $post->likedByUser }}" :count="{{ $post->likes()->count() }}"></like-button>
 
+                </div>
                 @if(Auth::id() == $post->user_id)
                 <form action="/posts/{{ $post->id}}" method="POST">
                     @csrf
                     {{ method_field('DELETE') }}
                     <button type="submit" class="btn btn-danger">Delete</button>
                     <a href="/posts/{{$post->id}}/edit" class="btn btn-dark">Edit</a>
-
                 </form>
                 @endif
+                @if (Auth::check())
+
+                <div class="card-text post-buttons">
 
 
-
-            @if (Auth::check())
-            <form action="{{route('comments.store', $post->id)}}" method="POST">
+                <form action="{{route('comments.store', $post->id)}}" method="POST">
                 @csrf
                 <p>{{ Form::textarea('body', old('body')) }}</p>
                 {{ Form::hidden('post_id', $post->id) }}
                 <p>{{ Form::submit('Comment') }}</p>
+                </form>
 
-                <div class="form-group">
-                    <a class= "btn btn-primary" href="#addGif" data-toggle="collapse">GIF</a>
-                    <div id="addGif" class="collapse">
-                        <gif-component></gif-component>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <a class= "btn btn-primary" href="#addGif" data-toggle="collapse">GIF</a>
+                        <div id="addGif" class="collapse">
+                            <gif-component></gif-component>
+                        </div>
                     </div>
                 </div>
-            </form>
-            @endif
+                @endif
+            </div>
+        </div>
 
-            @forelse ($post->comments as $comment)
-
-                    <h5 class="card-title">{{ $comment->user->name }}</h5>
-                <p>{{ $comment->body }}</p>
-                <img src="{{ $comment->gif}}" alt="">
-                <hr>
-            @empty
-                <p></p>
-            @endforelse
-
-    </div><br>
-</div>
-</div>
+    @foreach ($post->comments as $comment)
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{ $comment->user->name }}</h5>
+                <p class="card-text">
+                    {{ $comment->body }} <br>
+                    <img src="{{ $comment->gif }}" alt="">
+                </p>
+            </div><br>
+        </div>
+    @endforeach

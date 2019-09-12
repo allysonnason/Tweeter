@@ -50,5 +50,7 @@ Route::put('posts/{post}', 'PostController@update');
 Route::get('posts/{post}/edit', 'PostController@edit');
 Route::delete('posts/{post}', 'PostController@destroy');
 Auth::routes();
- Route::get('/posts/{post}/like', 'PostController@like');
+ //Route::get('/posts/{post}/like', 'PostController@like');
+Route::post('/posts/{post}/like', 'PostContoller@like');
+Route::post('/posts/{post}/unlike', 'PostController@unlike');
 Route::resource('/posts', 'PostController');

@@ -11,14 +11,13 @@
                     <h4 class="card-title">News Feed</h4>
                         <p class="card-text">
                             @foreach ($posts as $post)
-
                             @include('posts._post')
-
                             @endforeach
                         </p>
                         {{ $posts->links() }}
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

@@ -1,7 +1,8 @@
 <template>
     <div>
-
-        <div>
+        <button @click="toggleDropdown">GIF</button>
+        <div v-show="showDropdown">
+            <div>
             <div>
                 <form @submit.prevent="doSearch">
                     <input v-model="query" type="text" placeholder="GIF Search" class="form-control" />
@@ -25,6 +26,7 @@
                 </div>
             </div>
         </div>
+    </div>
 </template>
 
 <script>
@@ -84,18 +86,20 @@
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+
 
 .image-container {
-    width: 33.33%;
-    float: left;
-    position: relative;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .list-group {
   margin-top: 5px;
   list-style-type: none;
-  overflow: hidden;
+
 
   position: absolute;
   left: 0; top: 50%;

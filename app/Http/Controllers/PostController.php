@@ -135,45 +135,68 @@ class PostController extends Controller
                 dd('ERROR');
             }
         }
-        public function like($id)
-        {
-            $existing = \App\Like::where('user_id', Auth::id())
-                ->where('post_id', $id)
-                ->count();
+        // public function like($id)
+        // {
+        //     $existing = \App\Like::where('user_id', Auth::id())
+        //         ->where('post_id', $id)
+        //         ->count();
+        //
+        //     if ($existing) {
+        //         $delete = \App\Like::where('user_id', Auth::id())
+        //         ->where('post_id', $id)
+        //         ->delete();
+        //
+        //     if($delete)
+        //         return back();
+        //
+        //     }
+        //
+        //
+        //     $like = new \App\Like;
+        //     $like->user_id = Auth::id();
+        //     $like->post_id = $id;
+        //
+        //     if($like->save()) {
+        //         return back();
+        //     }
+        //     dd('Error');
+        //  }
+         public function like($id)
+         {
+             $userId = Auth::id();
+             $like = new \App\Like;
+             $like->user_id = Auth::id();
+             $like->post_id = $id;
 
-            if ($existing) {
-                $delete = \App\Like::where('user_id', Auth::id())
-                ->where('post_id', $id)
-                ->delete();
-
-            if($delete)
-                return back();
-
+             if ($like->save()) {
+                 return json_encode([
+                    'status' => 'success'
+                 ]);
             }
 
-
-            $like = new \App\Like;
-            $like->user_id = Auth::id();
-            $like->post_id = $id;
-
-            if($like->save()) {
-                return back();
-            }
-            dd('Error');
+             return json_encode([
+                 'status' => 'success'
+            ]);
          }
 
 
+         public function unlike($id)
+         {
+             $like = \App\Like::where('post_id',$id)
+             ->where('user_id', Auth::id())
+             ->first();
 
-    //      public function unlike($id)
-    //      {
-    //          $like = \App\Like::where('user_id', Auth::id())
-    //          ->where('post_id', $id)
-    //          ->delete();
-    //
-    //          if ($like) {
-    //              return back();
-    //          }
-    //          dd('Error');
-    //      }
-    //
+             if ($like->delete()) {
+                 return json_encode([
+                    'status' => 'success'
+                 ]);
+            }
+
+             return json_encode([
+                 'status' => 'success'
+              ]);
+          }
+
+
+
      }
