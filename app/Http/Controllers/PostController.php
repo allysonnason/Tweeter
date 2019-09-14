@@ -196,7 +196,4 @@ class PostController extends Controller
                  'status' => 'success'
               ]);
           }
-
-
-
-     }
+      }

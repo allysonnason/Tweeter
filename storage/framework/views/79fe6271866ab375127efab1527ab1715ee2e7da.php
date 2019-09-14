@@ -1,0 +1,1 @@
+<?php /**PATH /home/vagrant/code/HayGirl/resources/views/layout/_sidebar.blade.php ENDPATH**/ ?>
