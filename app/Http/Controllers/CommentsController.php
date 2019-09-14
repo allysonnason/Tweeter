@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
 
+use App\Jobs\SendNewCommentEmail;
+
 class CommentsController extends Controller
 {
     public function __construct() {
@@ -65,7 +67,8 @@ class CommentsController extends Controller
 
         $comment->save();
 
-        Mail::to($comment->user)->send(new NewComment($comment));
+        SendNewCommentEmail::dispatch($comment);
+        //Mail::to($comment->user)->send(new NewComment($comment));
 
             return back();
 
