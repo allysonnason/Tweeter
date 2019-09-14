@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Post;
+use Mail;
+use App\Mail\NewComment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\CommentRequest;
@@ -63,10 +65,17 @@ class CommentsController extends Controller
 
         $comment->save();
 
+        Mail::to($comment->user)->send(new NewComment($comment));
 
+            return back();
 
         return redirect('/posts/')->with('success', 'comment added');
-    }
+
+
+
+
+
+}
 
     /**
      * Display the specified resource.
